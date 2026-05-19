@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# IF LINUX:
+if [ "$(uname)" == "Linux" ]; then
+  python3 -m venv .venv
+  source .venv/bin/activate
+fi
+
 echo Beginning installation
 # python3 -m venv venv
 # Cleanup of any previous install
@@ -14,3 +20,5 @@ touch logs/pip.log
 pip3 install grpcio grpcio-tools chess > logs/pip.log
 cd src
 python3 -m grpc_tools.protoc -I ../proto --python_out=. --grpc_python_out=. ../proto/jsonFormat.proto
+cd ..
+echo -e "\nRun the following command: \nsource .venv/bin/activate\n"
