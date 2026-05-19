@@ -1,0 +1,6 @@
+/venv
+/.venv
+src/__pycache__
+src/*pb2*
+logs
+logs/*

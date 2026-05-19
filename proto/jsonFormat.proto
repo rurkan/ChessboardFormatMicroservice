@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message request {
+  string notationType = 1; // EX: PGN, FEN,
+  string boardData    = 2; // Simple string of board date
+  string isCLI         = 3;
+}
+
+message response {
+  string errorMsg     = 1;
+  string chessboard   = 2; // JSON format board, or simple string
+}
+
+service jsonFormatService {
+  rpc PGNtoBoard(request) returns(response);
+}
